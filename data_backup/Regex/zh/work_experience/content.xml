@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<regexes>
+  <regex>
+    <key>company</key>
+    <description>公司名</description>
+    <value>
+      <![CDATA[
+(?<!.{45,}) # not in a long paragraph
+(?<=\b(?:(?:毕业)?分配至))
+  [^、:—;；。，,\s-]{2,20}(?:(?<!子)(?<!00强)公司|代表处|营业部|经营部|事务所|研究院|大酒店|商行|工作室|银行|幼儿园|俱乐部|厂|加盟店|集团|门诊部|杂志社|医院|技术中心|研究所|民政局|制药|(?<!\b)公园)(?![)、]) # chinese company
+\b
+(?!.{45,}) # not in a long paragraph
+]]>
+    </value>
+  </regex>
+  <regex>
+    <key>company</key>
+    <description>公司名</description>
+    <value>
+      <![CDATA[
+(?<!.{45,}) # not in a long paragraph
+\b
+(?:
+  [^、:—;；。，,\s-]{2,20}(?<!(?:分配至).+?)(?:(?<!子)(?<!00强)公司|代表处|营业部|经营部|事务所|研究院|大酒店|商行|工作室|银行|幼儿园|俱乐部|厂|加盟店|集团|门诊部|杂志社|医院|技术中心|研究所|民政局|制药|(?<!\b)公园)(?![)、]) # chinese company
+  |
+  [-\.,\(\)a-z ]{3,50}(?:ltd\.?|limited) #english company
+)
+\b
+(?!.{45,}) # not in a long paragraph
+]]>
+    </value>
+  </regex>
+  <regex>
+    <key>company</key>
+    <description>公司名</description>
+    <value>
+      <![CDATA[
+(?<!.{45,}) # not in a long paragraph
+\b
+(?:北京|上海|广州|深圳|杭州|南京|苏州|成都)\p{IsCJKUnifiedIdeographs}{2,8}(?:通信|电子)
+\b
+(?!.{45,}) # not in a long paragraph
+]]>
+    </value>
+  </regex>
+  <regex>
+    <key>position</key>
+    <description>职位名</description>
+    <value>
+      <![CDATA[
+(?<!.{45,}) # not in a long paragraph
+(?<=\b担?任职?(?!职))
+  [^\t|:\s，；。]{0,20}(?:工程师|经理|专员|助理|顾问|代表|主管|翻译|主任|总监|实习生|软件开发|专职人员|程序员|管理员|设计师|促销督导|编辑|记者|教师|储备干部|培训师|秘书|策划人?|执行人) #chinese
+\b
+(?!、)
+(?!.{45,}) # not in a long paragraph
+]]>
+    </value>
+  </regex>
+  <regex>
+    <key>position</key>
+    <description>职位名</description>
+    <value>
+      <![CDATA[
+(?<!.{45,}) # not in a long paragraph
+\b
+(?:
+  [^\t|:\s，；。]{0,20}(?<!担?任.*?)(?:工程师|经理|专员|助理|顾问|代表|主管|翻译|主任|总监|实习生|软件开发|专职人员|程序员|管理员|设计师|促销督导|编辑|记者|教师|储备干部|培训师|秘书|策划人?|执行人) #chinese
+    |
+  [a-z\s]{4,50}(?:planner|manager|developer|engineer) #english
+) 
+\b
+(?!、)
+(?!.{45,}) # not in a long paragraph
+]]>
+    </value>
+  </regex>
+
+</regexes>

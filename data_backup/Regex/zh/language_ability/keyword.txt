@@ -1,0 +1,12 @@
+﻿english_level###英(?:语等级|语水平|语级别|语能力|语)
+
+japanese_level###日(?:语等级|语水平|语级别|语能力|语)
+
+cantonese_level###粤(?:语等级|语水平|语级别|语能力|语)
+
+french_level###法(?:语等级|语水平|语级别|语能力|语)
+
+other###第二外语
+
+other###\p{IsCJKUnifiedIdeographs}{2,8}:
+other###\p{IsCJKUnifiedIdeographs}(?:\s+\p{IsCJKUnifiedIdeographs}){1,7}:

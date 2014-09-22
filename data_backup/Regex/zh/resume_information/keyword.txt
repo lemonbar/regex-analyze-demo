@@ -1,0 +1,4 @@
+﻿updated_at###最后更新日期|最后更新简历时间|更新日期|最后更新
+
+other###\p{IsCJKUnifiedIdeographs}{2,8}:
+other###\p{IsCJKUnifiedIdeographs}(?:\s+\p{IsCJKUnifiedIdeographs}){1,7}:

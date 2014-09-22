@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<regexes>
+  <regex>
+    <key>phone</key>
+    <description>手机</description>
+    <value>
+      <![CDATA[
+(?<![\da-z])
+  (?:[0+]?86[\s－-]*)? # country code 86
+  1(?:\d{9}|[\d\s－-]{10,12})\d # mobile number
+\b
+]]>
+    </value>
+  </regex>
+  <regex>
+    <key>phone</key>
+    <description>座机</description>
+    <value>
+      <![CDATA[
+(?<!(?:\d|id:\s*|编号:\s*)) # not start with
+  (?:[0+]?86[\s－-]*)? # country code 86
+  (?:\d{3,4}[\s－-]\d{7,8}) # 座机号码必须写区号
+  (?:[\s-]\d{1,4})? #internal number
+(?![\d-]) # not end with
+]]>
+    </value>
+  </regex>
+</regexes>

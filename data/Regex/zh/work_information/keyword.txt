@@ -1,0 +1,14 @@
+﻿industry###所属行业|所在行业|行业类别|目前行业|当前行业|从事行业|公司行业|行业|现从事行业
+
+company###当前所在公司|目前所在公司|就职公司|任职公司|当前公司|公司|工作单位
+
+position###目前岗位|目前职位|当前岗位|当前职位|职位|岗位|担任职务|担当职务|职务|现从事职业|现职位
+
+salary###目前薪水|目前薪资|当前薪水|目前工资|当前工资|目前月薪|当前月薪|目前年薪|当前年薪|月薪|工资|薪水|年薪
+
+years_of_work_experience###工作年限
+
+other###期望月薪|通讯地址|电话|手机号码|Email|证件号|公司电话|户口|电子邮件|居住地|手机|最高学历
+
+other###\p{IsCJKUnifiedIdeographs}{2,8}:
+other###\p{IsCJKUnifiedIdeographs}(?:\s+\p{IsCJKUnifiedIdeographs}){1,7}:

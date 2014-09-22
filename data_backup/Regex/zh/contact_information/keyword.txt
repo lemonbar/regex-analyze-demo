@@ -1,0 +1,14 @@
+﻿email###电子邮件|电子邮箱|邮件地址|联系邮箱|邮箱|电邮|(?:email|e-mail)(?: address)?
+
+phone###手机号码|移动电话|手机|电话号码|联系电话|单位电话|工作电话|公司电话|家庭电话|座机|电话
+
+address###现居住城市|目前所在地|目前所在城市|当前所在地|现居住地|现所在地|居住地|联系地址|通讯地址|通信地址|地址|住址|所在城市|现住地
+
+pager_number###呼机号码|呼机号|呼机
+
+postalcode###邮政编码|邮编
+
+other###户口|求职状态|旺旺ID|从事行业|出生日期|民族|身份证|MSN/QQ|QQ(?:\s*号(?:\s*码)?)?
+
+other###\p{IsCJKUnifiedIdeographs}{2,8}:
+other###\p{IsCJKUnifiedIdeographs}(?:\s+\p{IsCJKUnifiedIdeographs}){1,7}:

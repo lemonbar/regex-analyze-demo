@@ -1,0 +1,16 @@
+﻿major###\b(\p{IsCJKUnifiedIdeographs}{2,8})(?<!所学|所修|我的)专业\b
+major###\b(?<major>\p{IsCJKUnifiedIdeographs}{2,3}学)(?<academic_degree>[学硕博]士)
+major###\b(?:影视动画)\b
+
+school###\b(?:毕业于)?(?<school>\p{IsCJKUnifiedIdeographs}{2,8}大学)(?<major>\p{IsCJKUnifiedIdeographs}{2,8})专业
+school###毕业于(\p{IsCJKUnifiedIdeographs}{2,8}大学)\b
+
+// 学历
+academic_degree###\b\p{IsCJKUnifiedIdeographs}{2}([学硕博]士)\b
+academic_degree###(?:本科|学士|大专|专科|硕士|博士|MBA|中专|初中|高中)(?:\(?在读\)?)?\b
+academic_degree###\b[学硕博]\s+士\b
+academic_degree###\b(本科|学士|大专|专科|硕士|博士|中专)学历\b
+academic_degree###\b在读[硕博]士研究生\b
+academic_degree###(?<=\b|获得?)((?:本科)?学士|硕士|博士)学位\b
+
+other###[\[\n]|\|\s+

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<regexes>
+  <regex>
+    <key>school</key>
+    <description>大学</description>
+    <value>
+      <![CDATA[
+\b # starts with
+  [\p{IsCJKUnifiedIdeographs}]{2,14}
+  (?<!毕业|毕业于\p{IsCJKUnifiedIdeographs}+?)(?:大学|学院|学校|中学|党校|\d{1,2}职) # endings
+\b #ends with
+|
+(?<=\b毕业于)\p{IsCJKUnifiedIdeographs}{2,8}大学\b
+]]>
+    </value>
+  </regex>
+</regexes>

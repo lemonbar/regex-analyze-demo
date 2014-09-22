@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace regex_analyze_demo
 {
@@ -8,7 +12,8 @@ namespace regex_analyze_demo
 		{
 			Console.WriteLine("Hello World!");
 			
-			// TODO: Implement Functionality Here
+			// parser mapping file
+			Dictionary<string, IEnumerable<string>> mapping = MappingFile.getMappingDictionary();
 			
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);

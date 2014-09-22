@@ -1,0 +1,13 @@
+﻿other###[\n\t]
+
+//电子邮件
+email###[_a-z0-9-]+(?:\.[_a-z0-9-]+)*@[a-z0-9-]+(?:\.[a-z0-9-]+)*(?:\.[a-z]{2,3})
+
+//居住地
+address###\b现居住于\s*([^\s]+?)\b
+address###\b\p{IsCJKUnifiedIdeographs}{2}市(?:\s*\p{IsCJKUnifiedIdeographs}{2,3}区)+\b
+address###\b目前在(\p{IsCJKUnifiedIdeographs}{2,3})\b
+address###(?:^|\s)(北京|上海|广州|深圳|杭州|南京|苏州|成都|西安|香港|哈尔滨)(?:\s|$)
+address###\b\p{IsCJKUnifiedIdeographs}{2,3}省\p{IsCJKUnifiedIdeographs}{2,3}市(?!人).{1,20}?$
+address###(?<!\s*户\s*口\s*)[\s\|]\p{IsCJKUnifiedIdeographs}{2,3}省·(?:广州|深圳|杭州|南京|苏州|成都|西安|哈尔滨)\b
+address###(?:^|\s)((?:北京|上海|广州|深圳|杭州|南京|苏州|成都|西安|香港||哈尔滨)市?-\p{IsCJKUnifiedIdeographs}{2}区)(?:\s|$)

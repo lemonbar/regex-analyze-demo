@@ -1,0 +1,5 @@
+﻿english_level###\b英语水平(\p{IsCJKUnifiedIdeographs}{2})\b
+english_level###\b英语(熟练|良好|四级|六级)\b
+english_level###\b大学英语考试(四级|六级)\b
+
+other###\n

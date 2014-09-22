@@ -1,0 +1,7 @@
+﻿self_assessment###(?<!/)(?:自我评价|自我评估|个人特长|个人评价|自我描述|自我介绍|个人总结|自我简评|个性特点|背景概要|自我评价/职业目标)
+
+other###\p{IsCJKUnifiedIdeographs}{2,8}:
+other###\p{IsCJKUnifiedIdeographs}(?:\s+\p{IsCJKUnifiedIdeographs}){1,7}:
+
+// end of content if encounter other keywords
+other###(?<=\n)(\p{IsCJKUnifiedIdeographs}{2,8})(?=\n|$)

@@ -1,0 +1,15 @@
+﻿//分隔符
+other###[|\n]
+
+//工作年限
+years_of_work_experience###\b(\d{1,2}-\d{1,2}年)工作经验\b
+years_of_work_experience###\b((?:\d{1,2}|[一二三四五六七八九十])年(?:以上|半)?)工作经验\b
+years_of_work_experience###(?<=\b|工作)(?<!\d+\.)1?\d(?:\.0)?\s*年\b
+years_of_work_experience###\b[一二三四五六七八九十]年(?:以上)?\b
+years_of_work_experience###\b应届(?:毕业)?生\b
+
+company###(?:^|\s+)\p{IsCJKUnifiedIdeographs}{2,12}公司\s+
+
+position###(?<!应聘)(?:^|\s+)\p{IsCJKUnifiedIdeographs}{2,12}(?:工程师|经理|专员|助理|顾问|代表|主管|主任|总监|实习生|管理员|设计师|编辑)\s+
+
+salary###\b\d{4,5}-\d{4,5}元?/月\b

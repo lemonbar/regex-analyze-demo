@@ -1,0 +1,7 @@
+﻿skills###(?:技能专长|技能特长|专业技能|IT\s*技能|技能|专业特长|职业技能与特长|职业技能|特殊技能|技术特长|熟练掌握\b)
+
+other###\p{IsCJKUnifiedIdeographs}{2,8}:
+other###\p{IsCJKUnifiedIdeographs}(?:\s+\p{IsCJKUnifiedIdeographs}){1,7}:
+
+// end of content if encounter other keywords
+other###(?<=\n)(\p{IsCJKUnifiedIdeographs}{2,8})(?=\n|$)
