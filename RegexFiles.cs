@@ -38,30 +38,77 @@ namespace regex_analyze_demo
 				foreach (string directory2 in Directory.GetDirectories(directory1))
 				{
 					string subFileName = Path.GetFileName(directory2);
-//					if (func_3 == null)
-//					{
-//						//func_3 is used to get extension, sort the files list by extension value.
-//						func_3 = new Func<string, string>(Class21.getFileExtension);
-//					}
-					foreach (string tmp in Directory.GetFiles(directory2))//.OrderBy<string, string>(func_3))
+					foreach (string tmp in Directory.GetFiles(directory2).OrderBy(t => Path.GetExtension(t)))
 					{
 						string shortName = Path.GetFileNameWithoutExtension(tmp);
 						//an example for key value is zh_basic_information_keyword
 						string key = string.Format("{0}_{1}_{2}", fileName, subFileName, shortName);
+
+						if (!dictionary.ContainsKey(key))
+						{
+							dictionary[key] = new List<RegexItem>();
+						}
+						
 						Console.Write(key);
 						Console.WriteLine();
-//						if (!dictionary.ContainsKey(key))
-//						{
-//							dictionary[key] = new List<Class23>();
-//						}
+						
 //						//str8 value is c:/.../zh/basic_information/keyword.txt
 //						//key value is zh_basic_information_keyword
-//						((List<Class23>) dictionary[key]).AddRange(smethod_4(tmp, key));
+						((List<RegexItem>)dictionary[key]).AddRange(parserRegexFile(tmp, key));
 					}
 				}
 			}
 			
 			return dictionary;
+		}
+		
+		private static IEnumerable<RegexItem> parserRegexFile(string file, string key)
+		{
+			if(!file.EndsWith(".txt")){
+				return null;
+			}
+
+			using (StreamReader reader = new StreamReader(file))
+			{
+//					if (func_4 == null)
+//					{
+//						func_4 = new Func<string, bool>(Class21.isValidLine);
+//					}
+//					if (func_5 == null)
+//					{
+//						func_5 = new Func<string, string[]>(Class21.splitLine);
+//					}
+//					if (selector == null)
+//					{
+//						selector = new Func<string[], Class23>(class2.newInstanceByArray);
+//					}
+				string[] lines = reader.ReadToEnd().Split(new string[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries).Where(t => isValidLine(t));
+				IEnumerable<RegexItem> items = new List<RegexItem>();
+				foreach(string line in lines){
+					((List<RegexItem>)items).Add(newItemByLine(line,key));
+				}
+				return items;
+			}
+		}
+		
+		private static RegexItem newItemByLine(string content,string key)
+		{
+			string[] array = splitLine(content);
+			RegexItem item = new RegexItem();
+			item.ParentKey = key;
+			item.ItemKey = array[0];
+			item.ItemValue = array[1].Trim();
+			return item;
+		}
+		
+		private static bool isValidLine(string content)
+		{
+			return (!string.IsNullOrWhiteSpace(content) && !content.StartsWith("//"));
+		}
+		
+		private static string[] splitLine(string content)
+		{
+			return content.Split(new string[] { "###" }, StringSplitOptions.RemoveEmptyEntries);
 		}
 	}
 }
