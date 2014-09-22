@@ -52,8 +52,6 @@ namespace regex_analyze_demo
 						Console.Write(key);
 						Console.WriteLine();
 						
-//						//str8 value is c:/.../zh/basic_information/keyword.txt
-//						//key value is zh_basic_information_keyword
 						((List<RegexItem>)dictionary[key]).AddRange(parserRegexFile(tmp, key));
 					}
 				}
@@ -64,31 +62,26 @@ namespace regex_analyze_demo
 		
 		private static IEnumerable<RegexItem> parserRegexFile(string file, string key)
 		{
-			if(!file.EndsWith(".txt")){
-				return null;
-			}
-
-			using (StreamReader reader = new StreamReader(file))
-			{
-//					if (func_4 == null)
-//					{
-//						func_4 = new Func<string, bool>(Class21.isValidLine);
-//					}
-//					if (func_5 == null)
-//					{
-//						func_5 = new Func<string, string[]>(Class21.splitLine);
-//					}
-//					if (selector == null)
-//					{
-//						selector = new Func<string[], Class23>(class2.newInstanceByArray);
-//					}
-				string[] lines = reader.ReadToEnd().Split(new string[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries).Where(t => isValidLine(t));
-				IEnumerable<RegexItem> items = new List<RegexItem>();
-				foreach(string line in lines){
-					((List<RegexItem>)items).Add(newItemByLine(line,key));
+			IEnumerable<RegexItem> items = new List<RegexItem>();
+			if(file.EndsWith(".txt")){
+				using (StreamReader reader = new StreamReader(file))
+				{
+					string[] lines = reader.ReadToEnd().Split(new string[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries).Where(t => isValidLine(t)).ToArray<string>();
+					
+					foreach(string line in lines){
+						((List<RegexItem>)items).Add(newItemByLine(line,key));
+					}
+					return items;
 				}
-				return items;
 			}
+			if (!file.EndsWith(".xml"))
+			{
+				throw new ArgumentException("unknown regular expression configuration file type: " + file);
+			}
+			foreach(XElement element in XElement.Load(file).Elements("regex")){
+				((List<RegexItem>)items).Add(newItemByXElement(element,key));
+			}
+			return items;
 		}
 		
 		private static RegexItem newItemByLine(string content,string key)
@@ -98,6 +91,15 @@ namespace regex_analyze_demo
 			item.ParentKey = key;
 			item.ItemKey = array[0];
 			item.ItemValue = array[1].Trim();
+			return item;
+		}
+		
+		private static RegexItem newItemByXElement(XElement xelement,string key)
+		{
+			RegexItem item = new RegexItem();
+			item.ParentKey = key;
+			item.ItemKey = xelement.Element("key").Value;
+			item.ItemValue = xelement.Element("value").Value;
 			return item;
 		}
 		

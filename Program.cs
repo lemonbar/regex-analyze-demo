@@ -15,7 +15,7 @@ namespace regex_analyze_demo
 			// parser mapping file
 			Dictionary<string, IEnumerable<string>> mapping = MappingFile.getMappingDictionary();
 			
-			RegexFiles.getRegexDictionary();
+			Dictionary<string, IEnumerable<RegexItem>> regexDictionary = RegexFiles.getRegexDictionary();
 			
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
