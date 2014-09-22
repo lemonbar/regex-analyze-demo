@@ -8,9 +8,14 @@ namespace regex_analyze_demo
 {
 	class Program
 	{
+		private static string content = "姓名：李四；手机：13333333333；性别：男；";
+		
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			Console.WriteLine("Parsing begin...");
+			
+			Resume resume = new Resume();
+			resume.Content = content;
 			
 			// parser mapping file
 			Dictionary<string, IEnumerable<string>> mapping = MappingFile.getMappingDictionary();
@@ -18,9 +23,16 @@ namespace regex_analyze_demo
 			//parser regex files
 			Dictionary<string, IEnumerable<RegexItem>> regexDictionary = RegexFiles.getRegexDictionary();
 			
+			//get zh_section_content regex items.
 			IEnumerable<RegexItem> sectionRegexItems = getRegexItems("zh","section","content");
 			
-			Console.Write("Press any key to continue . . . ");
+			//parser resume content.
+			foreach(RegexItem item in sectionRegexItems){
+				
+			}
+			
+			Console.WriteLine("Parsing done!");
+			Console.Write("Press any key to exit . . . ");
 			Console.ReadKey(true);
 		}
 		
