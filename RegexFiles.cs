@@ -49,8 +49,8 @@ namespace regex_analyze_demo
 							dictionary[key] = new List<RegexItem>();
 						}
 						
-						Console.Write(key);
-						Console.WriteLine();
+//						Console.Write(key);
+//						Console.WriteLine();
 						
 						((List<RegexItem>)dictionary[key]).AddRange(parserRegexFile(tmp, key));
 					}

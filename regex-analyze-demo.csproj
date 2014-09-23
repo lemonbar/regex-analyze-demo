@@ -51,6 +51,7 @@
     <Compile Include="RegexFiles.cs" />
     <Compile Include="RegexItem.cs" />
     <Compile Include="Resume.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

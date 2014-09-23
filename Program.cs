@@ -28,7 +28,7 @@ namespace regex_analyze_demo
 			
 			//parser resume content.
 			foreach(RegexItem item in sectionRegexItems){
-				
+				Console.WriteLine(item.getRegex());
 			}
 			
 			Console.WriteLine("Parsing done!");
