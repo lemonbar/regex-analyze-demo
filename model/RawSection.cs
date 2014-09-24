@@ -12,7 +12,7 @@ namespace regex_analyze_demo.model
 		//always return null, because don't know this string value usage.
 		public string getString1()
 		{
-			return null;
+			return this.string1;
 		}
 		
 		public string getSectionType()

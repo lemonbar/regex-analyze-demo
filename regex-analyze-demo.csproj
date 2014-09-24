@@ -46,10 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analyze.cs" />
+    <Compile Include="Extension.cs" />
     <Compile Include="MappingFile.cs" />
+    <Compile Include="model\BasicInformation.cs" />
     <Compile Include="model\RawSection.cs" />
     <Compile Include="model\Resume.cs" />
+    <Compile Include="model\Schema.cs" />
     <Compile Include="model\Section.cs" />
+    <Compile Include="model\Section_2.cs" />
     <Compile Include="model\Text.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

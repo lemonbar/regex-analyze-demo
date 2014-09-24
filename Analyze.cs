@@ -9,17 +9,13 @@ namespace regex_analyze_demo
 {
 	public class Analyze
 	{
-		private static void doInit(){
-			// parser mapping file
-			Dictionary<string, IEnumerable<string>> mapping = MappingFile.getMappingDictionary();
-		}
+		private static BasicInformation basicInformation;
 		
 		public static void doAnalyze(Resume resume){
-			doInit();
-			
 			Console.WriteLine("Parsing begin...");
 			
-			string className = "BasicInformation";
+			basicInformation = new BasicInformation();
+			string className = basicInformation.GetType().Name;
 			
 			string mappingKey = formatClassName(className);
 			
@@ -27,8 +23,13 @@ namespace regex_analyze_demo
 				
 				//get zh_section_content regex items.
 				IEnumerable<RegexItem> sectionRegexItems = getRegexItems(resume.Language,"section","content");
-				
+				//parser content by section regex items.
 				IEnumerable<Section> sections = getSectionsByKey(resume, sectionRegexItems,keyword);
+				foreach (Section section in sections)
+                {
+                    Section_2 section2 = section.newSection2(mappingKey);
+//                    schema_0.vmethod_0(section2);
+                }
 			}
 			
 			Console.WriteLine("Parsing done!");

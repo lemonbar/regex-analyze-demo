@@ -19,5 +19,15 @@ namespace regex_analyze_demo.model
 			get{return this.type;}
 			set{this.type = value;}
 		}
+		
+		public Section_2 newSection2(string mappingKey)
+		{
+			Section_2 section2 = new Section_2();
+			section2.Type = this.Type;
+			section2.Content = base.Content;
+			section2.Language = this.Language;
+			section2.MappingKey = mappingKey;
+			return section2;
+		}
 	}
 }

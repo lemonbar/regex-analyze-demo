@@ -22,5 +22,10 @@ namespace regex_analyze_demo
 		{
 			return simpleChinessRegex.IsMatch(character.ToString());
 		}
+		
+		public static string formatClassName(string className)
+		{
+			return classNameRegex.Replace(className, "$1_$2").ToLower();
+		}
 	}
 }
