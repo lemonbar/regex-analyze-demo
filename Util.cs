@@ -16,7 +16,7 @@ namespace regex_analyze_demo
 //		//{Sm} is 数学符号, {P} is 标点, {So} is 其它符号。
 //		private static readonly Regex regex_1 = new Regex(@"(?:^[\s\p{Sm}\p{P}\p{So}]+)|(?:[\s\p{Sm}\p{P}\p{So}]+$)", RegexOptions.Compiled);
 //		private static readonly Regex regex_2 = new Regex(@"\n{3,}", RegexOptions.Compiled);
-//		private static readonly Regex regex_3 = new Regex(@"(\p{Ll})(\p{Lu})", RegexOptions.Compiled);
+		public static readonly Regex classNameRegex = new Regex(@"(\p{Ll})(\p{Lu})", RegexOptions.Compiled);
 
 		public static bool isSimpleChinessChar(char character)
 		{

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using regex_analyze_demo.model;
 
 namespace regex_analyze_demo
 {
@@ -12,38 +13,11 @@ namespace regex_analyze_demo
 		
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Parsing begin...");
-			
 			Resume resume = new Resume();
 			resume.Content = content;
-			
-			// parser mapping file
-			Dictionary<string, IEnumerable<string>> mapping = MappingFile.getMappingDictionary();
-			
-			//parser regex files
-			Dictionary<string, IEnumerable<RegexItem>> regexDictionary = RegexFiles.getRegexDictionary();
-			
-			//get zh_section_content regex items.
-			IEnumerable<RegexItem> sectionRegexItems = getRegexItems("zh","section","content");
-			
-			//parser resume content.
-			foreach(RegexItem item in sectionRegexItems){
-				Console.WriteLine(item.getRegex());
-			}
-			
-			Console.WriteLine("Parsing done!");
-			Console.Write("Press any key to exit . . . ");
-			Console.ReadKey(true);
-		}
-		
-		public static IEnumerable<RegexItem> getRegexItems(string language, string folder, string file)
-		{
-			string key = string.Format("{0}_{1}_{2}", language, folder, file).Trim('_');
-			if (RegexFiles.getRegexDictionary().ContainsKey(key))
-			{
-				return RegexFiles.getRegexDictionary()[key];
-			}
-			return new List<RegexItem>();
+			resume.Language = "zh";
+
+			Analyze.doAnalyze(resume);
 		}
 	}
 }

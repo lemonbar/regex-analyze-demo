@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace regex_analyze_demo
+namespace regex_analyze_demo.model
 {
 	/// <summary>
-	/// Description of Resume.
+	/// Description of Text.
 	/// </summary>
-	public class Resume
+	public class Text
 	{
 		private string content;
-		public string Content
-		{
+		public string Content{
 			get{return this.content;}
 			set{this.content = value;}
 		}
